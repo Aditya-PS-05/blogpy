@@ -12,5 +12,7 @@ dependencies = [
     "passlib[bcrypt]>=1.7.4",
     "pwdlib[argon2]>=0.2.1",
     "pydantic[email]>=2.12.3",
+    "pyjwt>=2.10.1",
+    "python-jose[cryptography]>=3.5.0",
     "python-multipart>=0.0.20",
 ]

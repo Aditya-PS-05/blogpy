@@ -2,8 +2,7 @@ from typing import Union
 
 from fastapi import FastAPI
 
-from .routes import users
-
+from .routes import login, register
 app = FastAPI()
 
 
@@ -17,4 +16,5 @@ def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
 
-app.include_router(users.router)
+app.include_router(register.router)
+app.include_router(login.router)

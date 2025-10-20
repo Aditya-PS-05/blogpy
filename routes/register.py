@@ -1,15 +1,15 @@
 from fastapi import APIRouter, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from ..schemas import User, db, UserResponse
-from ..utils import get_password_hash
+from ..utils.verify import get_password_hash
 from ..send_email import send_registration_mail
 import secrets
 
 router = APIRouter(
-    tags=["User Routes"]
+    tags=["User Registration"]
 )
 
-@router.post("/registration", response_description="Register a user", response_model=UserResponse)
+@router.post("/register", response_description="Register a user", response_model=UserResponse)
 async def registration(user_info: User):
     user_dict = jsonable_encoder(user_info)
 
@@ -39,4 +39,3 @@ async def registration(user_info: User):
         "name": user_dict["name"]
     })
     return created_user
-
